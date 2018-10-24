@@ -1,21 +1,25 @@
 from django.shortcuts import render
 from django.contrib.auth import authenticate,login,logout
 from django.http import HttpResponseRedirect, HttpResponse
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.contrib.auth.decorators import login_required
+from django.views.generic import ListView
 
 from App.models import Profile
-from App.forms import UserForm,ProfileForm
+from App.forms import UserForm,ProfileForm,LoginForm
+from App.models import Internship
 # Create your views here.
 
+@login_required()
 def index(request):
-    return render(request,'app/index.html')
+
+    return render(request,'App/home.html')
 
 @login_required
 def user_logout(request):
 
     logout(request)
-    return HttpResponseRedirect(reverse('index'))
+    return HttpResponseRedirect(reverse('App:index'))
 
 def register_user(request):
 
@@ -44,18 +48,23 @@ def user_login(request):
 
     if request.method == 'POST':
 
-        user = authenticate(username = request.username, password = request.password)
+        user = authenticate(username = request.POST.get('username'), password = request.POST.get('password'))
+
 
         if user is not None:
             if user.is_active:
                 login(request,user)    
-                return HttpResponseRedirect(reverse('index'))
+                return HttpResponseRedirect(reverse('App:index'))
             else:
-                return HttpResponse("User is not active",status_code = 403)
+                return HttpResponse("User is not active", status= 403)
         else:
-            return HttpResponse("Invalid credentials",status_code = 403)       
+            return HttpResponse("Invalid credentials", status= 403)
     else:
-        return render(request,'App/login.html',{})
+        return render(request,'App/login.html',{'login_form' : LoginForm})
 
+
+class InternshipList(ListView):
+
+    model = Internship
 
         
