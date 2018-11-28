@@ -1,0 +1,56 @@
+body {
+    font-size : .875rem;
+    overflow-x: hidden;
+    padding-top: 56px;
+}
+
+@media (max-width: 991.98px) {
+    .offcanvas-collapse {
+        position: fixed;
+        top: 56px;
+        bottom: 0;
+        left: 100%;
+        width: 100%;
+        padding-right: 1rem;
+        padding-left: 1rem;
+        overflow-y: auto;
+        visibility: hidden;
+        background-color: #343a40;
+        transition-timing-function: ease-in-out;
+        transition-duration: 0.3s;
+        transition-property: left, visibility;
+    }
+    .offcanvas-collapse.open {
+        left: 0;
+        visibility: visible
+    }
+}
+
+.feather {
+    width : 16px;
+    height : 16px;
+    vertical-align: text-bottom;
+}
+
+.navbar-brand {
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+    font-size: 1rem;
+    background-color: rgba(0,0,0,.25);
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25);
+}
+
+[role="main"] {
+    padding-top: 48px;
+  }
+
+.nav-link {
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+    font-size: .875rem;
+    color: #6c757d;
+}
+
+.nav-link:hover {
+    color: #007bff;
+}

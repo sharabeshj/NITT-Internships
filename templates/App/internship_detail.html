@@ -1,0 +1,97 @@
+{% extends 'App/base.html' %}
+
+{% block content %}
+    <script>
+        $(document).ready(function () {
+            document.title = {{ internship.name }}
+        })
+    </script>
+    <div class="container-fluid" id="content">
+        <a href={% url 'App:internship_list' %}>
+            <div class="backToInternship visible-xs">
+                <img src = "">
+                <div>Browse more internships</div>
+            </div>
+        </a>
+    <div class="max-width-container">
+        <div id = "internship_seo_heading_container">
+            <h3>{{ internship.name }} under {{ internship.professor.name }}</h3>
+        </div>
+        <div class="table-row" id="reference">
+            <div class="table-cell">
+                <div class="internship_list_container" id="internship_list_container">
+                    <div class="container-fluid individual_internship visibilityTrackerItem" id="individual_internship_{{ internship.id }}" internshipId = {{ internship.id }}>
+                        <div class="internship_meta">
+                            <div class="individual_internship_header">
+                                <div class="table-cell">
+                                    <h4 title={{ internship.name }}>
+                                        <span class="profile_on_detail_page">{{ internship.name }}</span>
+                                    </h4>
+                                    <h4><a class="link_display_like_text" href={{ internship.professor.get_absolute_url }} title = {{ internship.professor.name }}>{{ internship.professor.name }}</a></h4>
+                                </div>
+                                <div class="table-cell">
+                                    <div class="internship_logo">
+                                        <img src="" title="{{ internship.name }} under {{ internship.professor.name }}" alt = "{{ internship.name }} under {{ internship.professor.name }}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="individual_internship_details">
+                                <p id="location_names">
+                                    <span class="hidden-xs">Location(s):</span>
+                                    <span>
+                                        <a class="location_link" href="#">{{ internship.location }}</a>
+                                    </span>
+                                </p>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Start Date</th>
+                                                <th>Duration</th>
+                                                <th>Rewards & Incentives</th>
+                                                <th>Posted On</th>
+                                                <th>Apply By</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div id="start-date-first">{{ internship.start_date | date }}</div>
+                                                </td>
+                                                <td>{{ internship.duration }} Months</td>
+                                                <td class="stipend_container_table_cell">
+                                                    {% if internship.stipend == 0 %}
+                                                        No Stipend
+                                                    {% else %}
+                                                        {{ internship.stipend }}
+                                                    {% endif %}
+                                                    <i class="fa fa-question-circle" title={{ internship.incentives }}></i>
+                                                </td>
+                                                <td>{{ internship.posted_on }}</td>
+                                                <td>{{ internship.apply_by }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="button_container">
+                            <div class="tags_container"></div>&nbsp;
+                        </div>
+                    </div>
+                    <div class="internship_details">
+                        <h5>About {{ internship.professor.name }} (<a style='cursor: pointer;font-size: 14px !important;' href={{ internship.professor.get_absolute_url }} target='_blank' rel="nofollow noopener noreferrer">{{ internship.professor.get_absolute_url }}</a>):</h5>
+                        <div class="freetext-container">
+                            {{ internship.professor.bio }}
+                        </div>
+                        <h5>About the program:</h5>
+                        <div class="freetext-container">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}

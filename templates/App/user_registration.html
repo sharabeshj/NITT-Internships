@@ -1,0 +1,17 @@
+{% extends 'App/base.html' %}
+
+{% block content %}
+
+    <form action="{% url 'App:user_login' %}" method="post">
+        {% csrf_token %}
+        {{ profile_form }}
+        {{ profile_education_form }}
+        {{ profile_projects_form }}
+        {{ profile_skill_form }}
+        {{ profile_internship_form }}
+        {{ profile_por_form }}
+        {{ profile_work_samples_form }}
+        {{ profile_add_details_form }}
+        <input type="submit" value="submit" name="submit">
+    </form>
+{% endblock %}

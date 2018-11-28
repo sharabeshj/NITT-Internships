@@ -1,0 +1,37 @@
+{% extends "App/base.html" %}
+
+
+{% block head %}
+    {% load crispy_forms_tags %}
+    {% load static %}
+    <link href = "{% static 'App/css/login.css' %}" rel = "stylesheet" type="text/css">
+{% endblock %}
+
+{% block content %}
+    <form class = "form-signin" method="post" novalidate>
+        <div class = "text-center mb-4">
+            <img class="mb-4" src = "{% static 'App/img/rei.jpeg' %}" alt = "logo" width="72" height = "72">
+            <h1 class="h3 mb-3 font-weight-normal">Research Intern @NITT</h1>
+            <p>An equal oppurtunity and transparent platform for students of NITT in search of intern reasearch field under professors from various institutions</p>
+        </div>
+        {% csrf_token %}
+        <div class="form-label-group">
+            {{login_form.username|as_crispy_field}}
+        </div>
+        <div class = "form-label-group">
+            {{login_form.password|as_crispy_field}}
+        </div>
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" value = "remember-me">Remember me
+            </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">
+            Sign in
+        </button>
+{#        <a href="{% url 'App:register' %}">#}
+{#           <button type="button" class="btn btn-outline-primary">Register</button>#}
+{#        </a>#}
+        <p class="mt-5 mb-3 text-muted text-center">&copy; 2018-2019</p>
+    </form>
+{% endblock %}

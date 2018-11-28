@@ -1,0 +1,187 @@
+{% extends 'App/base.html' %}
+
+{% block head %}
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic|Open+Sans+Condensed:300,300italic,700' rel='stylesheet' type='text/css'/>
+    <link href="https://fonts.googleapis.com/css?family=Covered+By+Your+Grace" rel="stylesheet"/>
+    <title> Summer Internship 2019 | Internships | Internships in India</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'App/css/internship_list.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class = "container-fluid" id = "internships_list_container">
+
+        <!--- Page Content -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <h1 class="my-4">{{ total }} total internships</h1>
+                    <p id="copy_content_collapse">Are you looking for internships?<br/>
+                        An internship is the best way to put classroom knowledge to practice. By doing an internship, you will gain experience, learn new skills, and add value to your resume while being paid for your work.
+                        <br/>Start today. Search for internships in India across various streams matching your preferences and apply for free.
+                    </p>
+                   {% for internship in object_list %}
+                    <div class="card mb-4" >
+                        <div class="card-body">
+                                <h2 class="card-title" title={{ internship.name }}>
+                                    <a href = {{ internship.get_absolute_url }}>{{ internship.name }}</a>
+                                </h2>
+                                <p class="card-text">
+                                    <a href={{ internship.professor.get_absolute_url }} class = "link_display_like_text"
+                                        title = {{ internship.professor.name }}
+                                    >
+                                        {{ internship.professor.name }}
+                                    </a>
+                                </p>
+                                <br />
+                                <p class="card-text">
+                                    <span class = "hidden-xs">Location(s):</span>
+                                    <span><a class="location_link" href = "#">
+                                        {{ internship.location }}
+                                    </a></span>
+                                </p>
+                                <div class = "table-responsive">
+                                    <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Start Date</th>
+                                            <th>Duration</th>
+                                            <th>Rewards & Incentives</th>
+                                            <th>Posted On</th>
+                                            <th>Apply By</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div id = "start-date-first">
+                                                    {{ internship.start_date }}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                "{{ internship.duration }} months"
+                                            </td>
+                                            <td class = "stipend_container_tabel_cell">
+                                                {% if internship.stipend == 0 %}
+                                                    No Stipend
+                                                {% else %}
+                                                    {{ internship.stipend }}
+                                                {% endif %}
+                                                <i class = "fa fa-question-circle" title={{ internship.incentives }}></i>
+                                            </td>
+                                            <td>
+                                                {{ internship.posted_on }}
+                                            </td>
+                                            <td>
+                                                {{ internship.apply_by }}
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                </div>
+                                <div class="button_container">
+                                    <div class="tags_container"></div>
+                                    <a class="btn btn-primary" href = {{ internship.get_absolute_url }}>
+                                        <span>View Details -></span>
+                                    </a>
+                                </div>
+
+                        </div>
+                        <div class="card-footer text-muted">
+                            Posted on {{ internship.posted_on }} by {{ internship.professor.name }}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <div class="col-md-4">
+
+                    <div class="card my-4">
+                        <h5 class="card-header">Search</h5>
+                        <div class="card-body">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search for internships">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-secondary" type="button">Go</button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+            <div class="card my-4">
+            <h5 class="card-header">Categories</h5>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-lg-6">
+                  <ul class="list-unstyled mb-0">
+                    <li>
+                      <a href="#">Web Design</a>
+                    </li>
+                    <li>
+                      <a href="#">HTML</a>
+                    </li>
+                    <li>
+                      <a href="#">Freebies</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-lg-6">
+                  <ul class="list-unstyled mb-0">
+                    <li>
+                      <a href="#">JavaScript</a>
+                    </li>
+                    <li>
+                      <a href="#">CSS</a>
+                    </li>
+                    <li>
+                      <a href="#">Tutorials</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+                </div>
+
+          <!-- Side Widget -->
+          <div class="card my-4">
+            <h5 class="card-header">Side Widget</h5>
+            <div class="card-body">
+              You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
+            </div>
+          </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; REI 2018</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+
+{#    <div class="container text-center">#}
+{#        <div class="row">#}
+{#            <div class="col-sm-3 well">#}
+{#                <div class="well">#}
+{#                    <p><a href="#">My Profile</a></p>#}
+{#                    <img src = "" class="img-circle" height="65" width = "65" alt = "prof_pic">#}
+{#                </div>#}
+{#                <div class="well">#}
+{#                    <p><a href="#">Interests</a></>#}
+{#                    <p>#}
+{#                        <span class="label label-primary">preference 1</span>#}
+{#                        <span class="label label-primary">preference 2</span>#}
+{#                        <span class="label label-primary">preference 3</span>#}
+{#                        <span class="label label-primary">preference 4</span>#}
+{#                        <span class="label label-primary">preference 5</span>#}
+{#                        <span class="label label-primary">preference 6</span>   #}
+{#                    </p>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+
+{% endblock %}
