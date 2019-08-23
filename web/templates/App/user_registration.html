@@ -1,5 +1,9 @@
 {% extends 'App/base.html' %}
 
+{% block head %}
+
+{% endblock %}
+    {% load crispy_forms_tags %}
 {% block content %}
 
     <form action="{% url 'App:user_login' %}" method="post">

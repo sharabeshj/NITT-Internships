@@ -22,7 +22,7 @@
 
     <!-- Custom styles for this template -->
       {% load static %}
-    <link href="{% static 'App/css/agency.min.css' %}" rel="stylesheet">
+    <link href="{% static 'App/css/agency.css' %}" rel="stylesheet">
 
   </head>
 
@@ -31,7 +31,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
       <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">Research Experience Initiative</a>
+        <a class="navbar-brand js-scroll-trigger" style="font-family: Montserrat;" href="#page-top">Research Experience Initiative</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu
           <i class="fas fa-bars"></i>
@@ -39,13 +39,13 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav text-uppercase ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#services">Services</a>
+              <a class="nav-link js-scroll-trigger" href="#aboutUs">About Us</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#about">About</a>
+              <a class="nav-link js-scroll-trigger" href="#story">Our Story</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#team">Team</a>
@@ -60,48 +60,37 @@
 
     <!-- Header -->
     <header class="masthead">
-      <div class="container">
-        <div class="intro-text">
-          <div class="intro-lead-in">Welcome To Our Portal!</div>
-          <div class="intro-heading text-uppercase">It's Nice To Meet You</div>
+      <div class="container" style="background-color: rgba(0, 0, 0, 0.7); width: 100%;">
+        <div class="intro-text" style="width: 100%;">
+          <img class = "rounded-circle img-fluid" style="
+          height: 233px;
+          border-radius: 37%;
+          margin-bottom: 41px;" 
+          src="{% static 'App/img/rei_logo.JPG'%}"/>
+          <div class="intro-heading text-uppercase">Challenge your limits</div>
           <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="/dashboard">Seek Opportunities</a>
         </div>
       </div>
     </header>
 
     <!-- Services -->
-    <section id="services">
+    <section id="aboutUs">
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
-            <h2 class="section-heading text-uppercase">Services</h2>
-            <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+            <h2 class="section-heading text-uppercase">About Us</h2>
+            <blockquote class=" blockquote text-center">
+              <h3 class="section-subheading text-muted">Education is the premise of progress, in every society, in every family.</h3>
+              <footer class="blockquote-footer">Kofi Annan</footer>
+            </blockquote>
           </div>
-        </div>
-        <div class="row text-center">
-          <div class="col-md-4">
-            <span class="fa-stack fa-4x">
-              <i class="fas fa-circle fa-stack-2x text-primary"></i>
-              <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
-            </span>
-            <h4 class="service-heading">E-Commerce</h4>
-            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-          </div>
-          <div class="col-md-4">
-            <span class="fa-stack fa-4x">
-              <i class="fas fa-circle fa-stack-2x text-primary"></i>
-              <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
-            </span>
-            <h4 class="service-heading">Responsive Design</h4>
-            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-          </div>
-          <div class="col-md-4">
-            <span class="fa-stack fa-4x">
-              <i class="fas fa-circle fa-stack-2x text-primary"></i>
-              <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
-            </span>
-            <h4 class="service-heading">Web Security</h4>
-            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+          <div class="col-md-12">
+            <p class="text-muted">
+              In today's ever-changing and dynamic environment, Higher education can be seen as a focal point of knowledge and its application. 
+              We at R.E.I, or the Research Experience Initiative, aim to establish ourselves and contribute to growth and development by fostering innovation and increasing higher order research skills, described as key drivers of growth performance, prosperity and competitiveness.
+              <br />
+              We seek to provide the exposure, the budding students need to raise their standards and nurture scientific temper, gearing them for the arduous journey that is Graduate school and beyond.
+              The initiative aims to participate and invest in knowledge creation and enabling scientific skill development through mandated  research programs as the key to enhancing productivity and growth, for a better tomorrow!</p>
           </div>
         </div>
       </div>
@@ -206,11 +195,11 @@
     </section>
 
     <!-- About -->
-    <section id="about">
+    <section id="story">
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
-            <h2 class="section-heading text-uppercase">About</h2>
+            <h2 class="section-heading text-uppercase">Our Story</h2>
             <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
           </div>
         </div>

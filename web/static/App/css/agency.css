@@ -49,14 +49,18 @@ section h3.section-subheading {
   font-size: 16px;
   font-weight: 400;
   font-style: italic;
-  margin-bottom: 75px;
   text-transform: none;
   font-family: 'Droid Serif', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
+media (min-width: 1200px)
+.container {
+    max-width: 100%;
+}
+
 @media (min-width: 768px) {
   section {
-    padding: 150px 0;
+    padding: 50px 0;
   }
 }
 
@@ -145,6 +149,13 @@ img::-moz-selection {
   color: #fed136;
 }
 
+@media (min-width: 1200px){
+  .container {
+    max-width: 100%;
+}
+}
+
+
 @media (min-width: 992px) {
   #mainNav {
     padding-top: 25px;
@@ -173,10 +184,10 @@ img::-moz-selection {
   }
 }
 
-header.masthead {
+header.masthead{
   text-align: center;
   color: white;
-  background-image: url("../img/header-bg.jpg");
+  background-image: url("../img/backdrop.jpg");
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
@@ -184,7 +195,7 @@ header.masthead {
 }
 
 header.masthead .intro-text {
-  padding-top: 150px;
+  padding-top: 100px;
   padding-bottom: 100px;
 }
 
@@ -203,12 +214,6 @@ header.masthead .intro-text .intro-heading {
   margin-bottom: 25px;
   font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
-
-@media (min-width: 768px) {
-  header.masthead .intro-text {
-    padding-top: 300px;
-    padding-bottom: 200px;
-  }
   header.masthead .intro-text .intro-lead-in {
     font-size: 40px;
     font-style: italic;
@@ -217,7 +222,7 @@ header.masthead .intro-text .intro-heading {
     font-family: 'Droid Serif', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   }
   header.masthead .intro-text .intro-heading {
-    font-size: 75px;
+    font-size: 60px;
     font-weight: 700;
     line-height: 75px;
     margin-bottom: 50px;
@@ -299,6 +304,11 @@ header.masthead .intro-text .intro-heading {
 
 #portfolio * {
   z-index: 2;
+}
+
+@media (min-width: 1200px)
+.container {
+    max-width: 100%;
 }
 
 @media (min-width: 767px) {
@@ -499,6 +509,11 @@ header.masthead .intro-text .intro-heading {
   margin-bottom: 0;
 }
 
+media (min-width: 1200px)
+.container {
+    max-width: 100%;
+}
+
 @media (min-width: 768px) {
   .timeline:before {
     left: 50%;
@@ -531,6 +546,11 @@ header.masthead .intro-text .intro-heading {
   }
 }
 
+media (min-width: 1200px)
+.container {
+    max-width: 100%;
+}
+
 @media (min-width: 992px) {
   .timeline > li {
     min-height: 150px;
@@ -551,6 +571,11 @@ header.masthead .intro-text .intro-heading {
   .timeline > li.timeline-inverted > .timeline-panel {
     padding: 0 20px 20px;
   }
+}
+
+media (min-width: 1200px)
+.container {
+    max-width: 100%;
 }
 
 @media (min-width: 1200px) {
@@ -693,3 +718,9 @@ ul.social-buttons li a {
 ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons li a:hover {
   background-color: #fed136;
 }
+
+.logo-img {
+  height: 233px;
+  border-radius: 37%;
+  margin-bottom: 41px;
+} 
