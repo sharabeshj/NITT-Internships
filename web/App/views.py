@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
+from django.core.mail import send_mail
 
 from App.models import Profile
 from App.forms import UserForm, ProfileForm, LoginForm, ProfileEducationForm, ProfileProjectsForm,ProfileSkillsForm,ProfileInternshipForm,ProfilePORForm,ProfileAddDetailsForm,ProfileWorkSampleForm
@@ -16,8 +17,11 @@ import imaplib
 # Create your views here.
 
 def home(request):
-
-    return render(request, 'App/homepage.html')
+    email = False
+    if request.method == 'POST':
+        send_mail('Query asked by{}'.format(request.POST['name']), request.POST['message'], request.POST['email'], ['sharabesh1234@gmail.com'], fail_silently=False)
+        email = True
+    return render(request, 'App/homepage.html', { 'email' : email })
 
 @login_required()
 def index(request):
