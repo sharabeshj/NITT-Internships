@@ -81,12 +81,8 @@ WSGI_APPLICATION = 'NITT_Internships.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'nitt_internships',
-        'USER': 'sharabesh',
-        'PASSWORD': 'shara1234',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'rei.sqlite3'),
     }
 }
 

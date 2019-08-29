@@ -1,5 +1,4 @@
 (function($) {
-  "use strict"; // Start of use strict
 
   // Smooth scrolling using jQuery easing
   $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
@@ -28,6 +27,7 @@
 
   // Collapse Navbar
   var navbarCollapse = function() {
+    console.log("navbar !!");
     if ($("#mainNav").offset().top > 100) {
       $("#mainNav").addClass("navbar-shrink");
     } else {
